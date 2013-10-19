@@ -8,21 +8,21 @@
 class CQueue
 {
 private:
-    CList* last;			//letztes
-    CList* first;			//erstes
+	CList* last;			//letztes
+	CList* first;			//erstes
 
 
 public:
-    //constructor
-    CQueue(void);		//??? default ???
+	//constructor
+	CQueue(void);		//??? default ???
 
-    //destructor
-    ~CQueue(void);					//löschen
+	//destructor
+	~CQueue(void);					//löschen
 
-    //Methoden
-    void pop();			//Lösch-Fkt.
-    void push(CList*);			//Einfüge-Fkt.
-    void printJobs();		//Prinkt-Fkt.
+	//Methoden
+	void pop();			//Lösch-Fkt.
+	void push(CList*);			//Einfüge-Fkt.
+	void printJobs();		//Prinkt-Fkt.
 };
 
 #endif /* CQUEUE_HEADER */
