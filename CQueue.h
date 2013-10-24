@@ -8,8 +8,8 @@
 class CQueue
 {
 private:
-	CList* last;			//letztes
-	CList* first;			//erstes
+    CList* _last;			//letztes
+    CList* _first;			//erstes
 
 
 public:
@@ -21,7 +21,7 @@ public:
 
 	//Methoden
 	void pop();			//Lösch-Fkt.
-	void push(CList*);			//Einfüge-Fkt.
+    void push(CPJob*);			//Einfüge-Fkt.
 	void printJobs();		//Prinkt-Fkt.
 };
 

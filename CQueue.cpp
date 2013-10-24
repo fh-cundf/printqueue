@@ -6,60 +6,60 @@
 using namespace std;
 
 //constructor
-CQueue(void){									//??? default ???
-	first = NULL;
-	last = NULL;
+CQueue::CQueue(void){									//??? default ???
+    this->_first = NULL;
+    this->_last = NULL;
 }
 
 //destructor
-~CQueue(void){
+CQueue::~CQueue(void){
+    delete this->_first;						///?????
+    delete this->_last;						//??????
 
-	delete first;						///?????
-	delete last;						//??????
+}
 
-}											
 //Methoden
-void pop(){					//Lösch erste-Fkt.
+void CQueue::pop(){					//Lösch erste-Fkt.
 	
 
-	if (first != last){
+    if (_first != NULL){
 		
-		first = first.next_get();
-		first.prev = NULL;
+        _first = _first->next_get();
+        _first.prev = NULL;
+        cout << "Element geloescht";
 	}
 	else
 	{
-		first = NULL;
-		last = NULL;
+        cout << "Liste ist bereits Leer";
 
 	}
 }
 
-void push(CPJob* datent){			//Einfüge - Fkt.
+void CQueue::push(CPJob* datent){			//Einfüge - Fkt.
 
-	if (first == NULL){
+    if (_first == NULL){
 
-		first = datent;				//erstes element überhaupt
+        _first = datent;				//erstes element überhaupt
 
 	}
 	else
 	{
-		firstt = frist;			//ersten merken
-		first = datent;				//erstes "ersetzen"
-		firstt.prev = first;
+        CList* firstt = _first;			//ersten merken
+        _first = datent;				//erstes "ersetzen"
+        firstt.prev = _first;
 
 	}
 }
 
-void printJobs() {		//Prinkt-Fkt.
+void CQueue::printJobs() {		//Prinkt-Fkt.
 
-	firstt = first;
+    CList* firstt = _first;
 
-	while (next != NULL){
+    while (firstt->next != NULL){
 
-		printf("%i  - %s\n", firstt.lPid , firstt.*szText);
+        printf("%i  - %s\n", firstt.lPid , firstt.*szText);
 
-		firstt = CList::firstt.next_get;
+        firstt = firstt.next_get;
 
 	}
 

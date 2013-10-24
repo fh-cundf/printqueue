@@ -6,6 +6,7 @@ namespace std
 
 
 //fills  queue  with  CPJob  objects
+{
 void fillQueue(CQueue* pQueue, int num) {
 	CPJob  *pPJob;
 	for (int i = 0; i < num; i++){
@@ -23,4 +24,5 @@ int  main(int argc, char* argv[]) {
 	pQueue->pop();
 	pQueue->printJobs();
 	return  0;
+}
 }
