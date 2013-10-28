@@ -13,19 +13,19 @@ private:
 	CList* next;
 
 public:
-	
-	//constructor
-	CList(CPJob*, CList*, CList*);		//Neues Element mit 
 
-	//destruktor
-	~CList(void);						//default
+    //constructor
+    CList(CPJob*, CList*, CList*);		//Neues Element mit
 
-	//weitere Methoden
-	void prev_set(CList*);
-	void next_set(CList*);
+    //destruktor
+    ~CList(void);						//default
 
-	CList* prev_get();
-	CList* next_get();
+    //weitere Methoden
+    void prev_set(CList*);
+    void next_set(CList*);
+
+    CList* prev_get();
+    CList* next_get();
 
 };
 

@@ -12,10 +12,10 @@ private:
 
 public:
 	//constructor
-	CPJob(char*, long);  //inits  text-field  and process-id
+    CPJob(char*, long);  //inits  text-field  and process-id
 
 	//destructor
-	~CPJob(void);
+    ~CPJob(void);
 
 	//accessor s
 	void setText(char*); // sets  text-field

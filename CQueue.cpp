@@ -19,13 +19,14 @@ CQueue::~CQueue(void){
 }
 
 //Methoden
-void CQueue::pop(){					//Lösch erste-Fkt.
+void CQueue::pop(){					//Loesch erste-Fkt.
 	
 
     if (_first != NULL){
 		
         _first = _first->next_get();
-        _first.prev = NULL;
+        _first->prev_set(NULL);
+
         cout << "Element geloescht";
 	}
 	else
@@ -35,31 +36,31 @@ void CQueue::pop(){					//Lösch erste-Fkt.
 	}
 }
 
-void CQueue::push(CPJob* datent){			//Einfüge - Fkt.
+void CQueue::push(CPJob* datent){			//Einfuege - Fkt.
 
-    if (_first == NULL){
+//    if (_first == NULL){
 
-        _first = datent;				//erstes element überhaupt
+//        _first = datent;				//erstes element ueberhaupt
+//
+//	}
+//	else
+//	{
+//        CList* firstt = _first;			//ersten merken
+//        _first = datent;				//erstes "ersetzen"
+//        firstt->prev = _first;
 
-	}
-	else
-	{
-        CList* firstt = _first;			//ersten merken
-        _first = datent;				//erstes "ersetzen"
-        firstt.prev = _first;
-
-	}
+//	}
 }
 
 void CQueue::printJobs() {		//Prinkt-Fkt.
 
     CList* firstt = _first;
 
-    while (firstt->next != NULL){
+    while (firstt->next_get() != NULL){
 
-        printf("%i  - %s\n", firstt.lPid , firstt.*szText);
+//        printf("%i  - %s\n", firstt->GetPid() , firstt.*szText);    //WTF PID ist da gar nicht abgelegt??
 
-        firstt = firstt.next_get;
+        firstt = firstt->next_get();
 
 	}
 
