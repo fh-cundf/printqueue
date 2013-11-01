@@ -13,8 +13,6 @@
 ********************************************************/
 
 #include <cstring>
-#include "string.h"
-#include <iostream>
 #include "CPJob.h"
 
 using namespace std;

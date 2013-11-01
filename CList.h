@@ -26,6 +26,7 @@ private:
     CList* _prev;
     CList* _next;
 
+
 public: 
     CPJob* _daten;
     //constructor
@@ -35,11 +36,11 @@ public:
     ~CList(void);						//default
 
     //weitere Methoden
-    void prev_set(CList*);
-    void next_set(CList*);
+    void setPrevious(CList*);
+    void setNext(CList*);
 
-    CList* prev_get();
-    CList* next_get();
+    CList* getPrevious();
+    CList* getNext();
 };
 
 #endif /* CLIST_HEADER */

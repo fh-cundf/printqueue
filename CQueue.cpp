@@ -15,8 +15,6 @@
 #include  <cstring>
 #include  <iostream>
 #include  "CQueue.h"
-#include  "CPJob.h"
-#include "CList.h"
 
 using namespace std;
 
@@ -41,8 +39,9 @@ void CQueue::pop(){					//Loesch erstes Element.
     }
     else {                          //lösch den ersten
         CList* tmp = this->_first;
-        this->_first = this->_first->next_get();
+        this->_first = this->_first->getNext();
         this->_count --;
+        delete tmp;
     }
 }
 
@@ -50,15 +49,15 @@ void CQueue::pop(){					//Loesch erstes Element.
 void CQueue::push(CPJob* datent){
     if(!(_count)){                           //wenn liste leer
         CList* tmp  = new CList(datent, NULL, NULL);     //erstellt das fertige neue Element
-        _first = tmp;
-        _last = tmp;
-        _count++;
+        this->_first = tmp;
+        this->_last = tmp;
+        this->_count++;
     }
     else
     {
         CList* tmp  = new CList(datent, NULL, this->_first);     //erstellt das fertige neue Element
 
-        this->_first->CList::prev_set(tmp);                     //das erste Element aktualisieren
+        this->_first->CList::setPrevious(tmp);                     //das erste Element aktualisieren
         this->_first = tmp;                                     //Header aktualisieren
         this->_count++;
     }
@@ -70,7 +69,7 @@ void CQueue::printJobs() {
     int i_pos = 0;
     while(p_first!=NULL){
         i_pos++;
-        cout << i_pos << ": " << p_first->_daten->getPid() << " - " << p_first->_daten->getText() << "\n";
-        p_first = p_first->next_get();
+        cout << i_pos << ": " << p_first->_daten->getPid() << " - " << p_first->_daten->getText() << endl;
+        p_first = p_first->getNext();
     }
 }

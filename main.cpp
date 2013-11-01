@@ -13,7 +13,6 @@
  *          - Seinen Code anpassen lassen
 ********************************************************/
 
-
 #include  <iostream>
 #include  "CPJob.h"
 #include  "CQueue.h"

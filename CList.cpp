@@ -11,10 +11,7 @@
  *          - Code-Review durch Kollega
  *          - Seinen Code anpassen lassen
 ********************************************************/
-
-
 #include  <cstring>
-#include  <iostream>
 #include  "CList.h"
 #include  "CPJob.h"
 
@@ -34,23 +31,23 @@ CList::~CList(void){									//default
 
 
 //weitere Methoden
-void CList::prev_set(CList* p_prev){
+void CList::setPrevious(CList* p_prev){
 
     this->_prev = p_prev;
 }
 
 
-void CList::next_set(CList* p_next){
+void CList::setNext(CList* p_next){
 
     this->_next = p_next;
 
 }
 
-CList* CList::prev_get(){
+CList* CList::getPrevious(){
 
     return _prev;
 }
-CList* CList::next_get(){
+CList* CList::getNext(){
 
     return _next;
 }
