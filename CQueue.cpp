@@ -1,7 +1,22 @@
+/********************************************************
+ * OOP - AS1_pqueue
+ * Christian Winkler, Franz Polz
+ * FH-Salzburg, ITSB-B2012
+ *
+ * 01.11.2013
+ * CQueue.cpp   - FOO
+ *
+ *
+ * TODO:    - Kommentare/Variablen anpassen,
+ *          - Code-Review durch Kollega
+ *          - Seinen Code anpassen lassen
+********************************************************/
+
 #include  <cstring>
 #include  <iostream>
 #include  "CQueue.h"
 #include  "CPJob.h"
+#include "CList.h"
 
 using namespace std;
 
@@ -9,59 +24,53 @@ using namespace std;
 CQueue::CQueue(void){									//??? default ???
     this->_first = NULL;
     this->_last = NULL;
+    this->_count = 0;
 }
 
 //destructor
 CQueue::~CQueue(void){
-    delete this->_first;						///?????
+    delete this->_first;						//?????
     delete this->_last;						//??????
-
 }
 
 //Methoden
-void CQueue::pop(){					//Loesch erste-Fkt.
-	
+void CQueue::pop(){					//Loesch erstes Element.
+    if(!_count){                     //Liste bereits Leer
+        return;
 
-    if (_first != NULL){
-		
-        _first = _first->next_get();
-        _first->prev_set(NULL);
-
-        cout << "Element geloescht";
-	}
-	else
-	{
-        cout << "Liste ist bereits Leer";
-
-	}
+    }
+    else {                          //lösch den ersten
+        CList* tmp = this->_first;
+        this->_first = this->_first->next_get();
+        this->_count --;
+    }
 }
 
-void CQueue::push(CPJob* datent){			//Einfuege - Fkt.
+//Erstellt ein Element am anfang der Liste
+void CQueue::push(CPJob* datent){
+    if(!(_count)){                           //wenn liste leer
+        CList* tmp  = new CList(datent, NULL, NULL);     //erstellt das fertige neue Element
+        _first = tmp;
+        _last = tmp;
+        _count++;
+    }
+    else
+    {
+        CList* tmp  = new CList(datent, NULL, this->_first);     //erstellt das fertige neue Element
 
-//    if (_first == NULL){
-
-//        _first = datent;				//erstes element ueberhaupt
-//
-//	}
-//	else
-//	{
-//        CList* firstt = _first;			//ersten merken
-//        _first = datent;				//erstes "ersetzen"
-//        firstt->prev = _first;
-
-//	}
+        this->_first->CList::prev_set(tmp);                     //das erste Element aktualisieren
+        this->_first = tmp;                                     //Header aktualisieren
+        this->_count++;
+    }
 }
 
-void CQueue::printJobs() {		//Prinkt-Fkt.
-
-    CList* firstt = _first;
-
-    while (firstt->next_get() != NULL){
-
-//        printf("%i  - %s\n", firstt->GetPid() , firstt.*szText);    //WTF PID ist da gar nicht abgelegt??
-
-        firstt = firstt->next_get();
-
-	}
-
+//gesammte Liste ausgeben
+void CQueue::printJobs() {
+    CList* p_first = _first;
+    int i_pos = 0;
+    while(p_first!=NULL){
+        i_pos++;
+        cout << i_pos << ": " << p_first->_daten->getPid() << " - " << p_first->_daten->getText() << "\n";
+        p_first = p_first->next_get();
+    }
 }

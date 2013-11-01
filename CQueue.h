@@ -1,3 +1,17 @@
+/********************************************************
+ * OOP - AS1_pqueue
+ * Christian Winkler, Franz Polz
+ * FH-Salzburg, ITSB-B2012
+ *
+ * 01.11.2013
+ * CQueue.h
+ *
+ *
+ * TODO:    - Kommentare/Variablen anpassen,
+ *          - Code-Review durch Kollega
+ *          - Seinen Code anpassen lassen
+********************************************************/
+
 #ifndef CQUEUE_HEADER
 #define CQUEUE_HEADER
 #include "CList.h"
@@ -10,19 +24,22 @@ class CQueue
 private:
     CList* _last;			//letztes
     CList* _first;			//erstes
+    int _count;				//Anzahl
 
 
 public:
-	//constructor
-	CQueue(void);		//??? default ???
+    //constructor
+    CQueue(void);		//??? default ???
 
-	//destructor
-	~CQueue(void);					//löschen
+    //destructor
+    ~CQueue(void);					//lï¿½schen
 
-	//Methoden
-	void pop();			//Lösch-Fkt.
-    void push(CPJob*);			//Einfüge-Fkt.
-	void printJobs();		//Prinkt-Fkt.
+    //Methoden
+    void pop();			//Lï¿½sch-Fkt.
+    void push(CPJob*);			//Einfï¿½ge-Fkt.
+    void printJobs();		//Prinkt-Fkt.
+
+    void setfirst(CList*);
 };
 
 #endif /* CQUEUE_HEADER */
