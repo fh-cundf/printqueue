@@ -14,26 +14,27 @@
 ********************************************************/
 
 #include  <iostream>
-#include  "CPJob.h"
-#include  "CQueue.h"
+
+#include  "job.h"
+#include  "queue.h"
 
 using namespace std;
 
 
 //fills  queue  with  CPJob  objects
 
-void fillQueue(CQueue* pQueue, int num) {
-    CPJob  *pPJob;
+void fillQueue(queue* pQueue, int num) {
+    Job  *pPJob;
     for (int i = 0; i < num; i++){
-        pPJob = new  CPJob("text", i);
+        pPJob = new  Job("text", i);
         pQueue->push(pPJob);
     }
 }
 
 //driver: simple  test
 int  main(int argc, char* argv[]) {
-    CQueue *pQueue;
-    pQueue = new CQueue();
+    queue *pQueue;
+    pQueue = new queue();
     fillQueue(pQueue, 3);
     cout << "\n----print:\n";
     pQueue->printJobs();
@@ -41,11 +42,12 @@ int  main(int argc, char* argv[]) {
     cout << "\n----print:\n";
     pQueue->printJobs();
     pQueue->pop();
-    CPJob  *pPJob = new  CPJob("lool", 4);
+    // Job  *pPJob = new  Job(NULL, 5);          //reudige Fehlermögl. fix in job durch if(NULL) : ""???
+    // pQueue->push(pPJob);
+    Job  *pPJob = new  Job("LOOOL", 5);
     pQueue->push(pPJob);
     cout << "\n----print:\n";
     pQueue->printJobs();
-
     pQueue->pop();
     pQueue->pop();
     pQueue->pop();

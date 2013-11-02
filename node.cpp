@@ -12,42 +12,43 @@
  *          - Seinen Code anpassen lassen
 ********************************************************/
 #include  <cstring>
-#include  "CList.h"
-#include  "CPJob.h"
+
+#include  "node.h"
+#include  "job.h"
 
 // ein Node
 //constructor
-CList::CList(CPJob* pdaten, CList* pprev=NULL, CList* pnext=NULL){				//Neues Element mit
-    this->_prev = pprev;
+Node::Node(Job* pdaten, Node* pprev=NULL, Node* pnext=NULL){				//Neues Element mit
+    this->_previous = pprev;
     this->_next = pnext;
     this->_daten = pdaten;
 }
 
 
 //destruktor
-CList::~CList(void){									//default
+Node::~Node(void){									//default
     delete _daten;   							//delete das neue free...
 }
 
 
 //weitere Methoden
-void CList::setPrevious(CList* p_prev){
+void Node::setPrevious(Node* p_prev){
 
-    this->_prev = p_prev;
+    this->_previous = p_prev;
 }
 
 
-void CList::setNext(CList* p_next){
+void Node::setNext(Node* p_next){
 
     this->_next = p_next;
 
 }
 
-CList* CList::getPrevious(){
+Node* Node::getPrevious(){
 
-    return _prev;
+    return _previous;
 }
-CList* CList::getNext(){
+Node* Node::getNext(){
 
     return _next;
 }

@@ -12,13 +12,13 @@
  *          - Seinen Code anpassen lassen
 ********************************************************/
 
-#ifndef CPJOB_HEADER
-#define CPJOB_HEADER
+#ifndef JOB_HEADER
+#define JOB_HEADER
 
 //
-//  class  CPJob  defines  a  simple  printjob  with  id  and  text
+//  class  Job  defines  a  simple  printjob  with  id  and  text
 //
-class  CPJob
+class  Job
 {
 private:
     long  lPid;
@@ -26,10 +26,10 @@ private:
 
 public:
     //constructor
-    CPJob(char*, long);  //inits  text-field  and process-id
+    Job(char*, long);  //inits  text-field  and process-id
 
     //destructor
-    ~CPJob(void);
+    ~Job(void);
 
     //accessors
     void setText(char*); // sets  text-field
@@ -37,4 +37,4 @@ public:
     long getPid(void); // returns  process-id
 };
 
-#endif /* CPJOB_HEADER */
+#endif /* JOB_HEADER */

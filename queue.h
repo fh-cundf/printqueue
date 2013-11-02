@@ -12,34 +12,34 @@
  *          - Seinen Code anpassen lassen
 ********************************************************/
 
-#ifndef CQUEUE_HEADER
-#define CQUEUE_HEADER
-#include "CList.h"
+#ifndef QUEUE_HEADER
+#define QUEUE_HEADER
+#include "node.h"
 
 //
-//  class  CQUEUE	pop push print
+//  class  QUEUE	pop push print
 //
-class CQueue
+class queue
 {
 private:
-    CList* _last;			//letztes
-    CList* _first;			//erstes
+    Node* _last;			//letztes
+    Node* _first;			//erstes
     int _count;				//Anzahl
 
 
 public:
     //constructor
-    CQueue(void);		//??? default ???
+    queue(void);		//??? default ???
 
     //destructor
-    ~CQueue(void);					//l�schen
+    ~queue(void);					//loeschen
 
     //Methoden
-    void pop();			//L�sch-Fkt.
-    void push(CPJob*);			//Einf�ge-Fkt.
+    void pop();			//Loesch-Fkt.
+    void push(Job*);			//Einfuege-Fkt.
     void printJobs();		//Prinkt-Fkt.
 
-    void setfirst(CList*);
+    void setfirst(Node*);
 };
 
-#endif /* CQUEUE_HEADER */
+#endif /* QUEUE_HEADER */

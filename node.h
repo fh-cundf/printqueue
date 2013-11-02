@@ -13,34 +13,34 @@
 ********************************************************/
 
 
-#ifndef CLIST_HEADER
-#define CLIST_HEADER
-#include "CPJob.h"
+#ifndef NODE_HEADER
+#define NODE_HEADER
+#include "job.h"
 
 //
 //  class  CList beinhaltet die Liste selbst.
 //
-class  CList
+class  Node
 {
 private:
-    CList* _prev;
-    CList* _next;
+    Node* _previous;
+    Node* _next;
 
 
 public: 
-    CPJob* _daten;
+    Job* _daten;
     //constructor
-    CList(CPJob* daten, CList* first, CList* last);		//Neues Element mit
+    Node(Job* daten, Node* first, Node* last);		//Neues Element mit
 
     //destruktor
-    ~CList(void);						//default
+    ~Node(void);						//default
 
     //weitere Methoden
-    void setPrevious(CList*);
-    void setNext(CList*);
+    void setPrevious(Node*);
+    void setNext(Node*);
 
-    CList* getPrevious();
-    CList* getNext();
+    Node* getPrevious();
+    Node* getNext();
 };
 
-#endif /* CLIST_HEADER */
+#endif /* NODE_HEADER */
