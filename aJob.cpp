@@ -14,12 +14,12 @@
 
 #include <cstring>
 
-#include "job.h"
+#include "Job.h"
 
 using namespace std;
 
 //constructor  ::sets  text-field  and  process-id
-Job::Job(char  *_szText, long  _lPid){
+Job::Job(char* _szText, long  _lPid){
     lPid = _lPid;
     szText = new  char[strlen(_szText) + 1];		//das neue malloc() !!!! new- -delete für free
     strcpy(szText, _szText);

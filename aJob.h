@@ -1,4 +1,4 @@
-/********************************************************
+﻿/********************************************************
  * OOP - AS1_pqueue
  * Christian Winkler, Franz Polz
  * FH-Salzburg, ITSB-B2012
@@ -22,7 +22,7 @@ class  Job
 {
 private:
     long  lPid;
-    char  *szText;
+    char* szText;
 
 public:
     //constructor

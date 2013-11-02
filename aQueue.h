@@ -14,25 +14,24 @@
 
 #ifndef QUEUE_HEADER
 #define QUEUE_HEADER
-#include "node.h"
+#include "Node.h"
 
 //
-//  class  QUEUE	pop push print
+//  class  QUEUE
 //
-class queue
+class Queue
 {
 private:
     Node* _last;			//letztes
     Node* _first;			//erstes
     int _count;				//Anzahl
 
-
 public:
     //constructor
-    queue(void);		//??? default ???
+    Queue(void);		//??? default ???
 
     //destructor
-    ~queue(void);					//loeschen
+    ~Queue(void);					//loeschen
 
     //Methoden
     void pop();			//Loesch-Fkt.

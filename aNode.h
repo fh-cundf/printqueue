@@ -15,7 +15,7 @@
 
 #ifndef NODE_HEADER
 #define NODE_HEADER
-#include "job.h"
+#include "Job.h"
 
 //
 //  class  CList beinhaltet die Liste selbst.

@@ -13,8 +13,8 @@
 ********************************************************/
 #include  <cstring>
 
-#include  "node.h"
-#include  "job.h"
+#include  "Node.h"
+#include  "Job.h"
 
 // ein Node
 //constructor

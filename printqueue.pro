@@ -4,12 +4,12 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += main.cpp \
-    queue.cpp \
-    job.cpp \
-    node.cpp
+    Queue.cpp \
+    Node.cpp \
+    Job.cpp
 
 HEADERS += \
-    queue.h \
-    job.h \
-    node.h
+    Queue.h \
+    Node.h \
+    Job.h
 

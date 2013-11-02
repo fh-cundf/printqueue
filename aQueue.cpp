@@ -15,26 +15,26 @@
 #include  <cstring>
 #include  <iostream>
 
-#include  "queue.h"
+#include  "Queue.h"
 
 using namespace std;
 
-//constructor
-queue::queue(void){									//??? default ???
+//constructor  ::create the empty Queue
+Queue::Queue(void){									//??? default ???
     this->_first = NULL;
     this->_last = NULL;
     this->_count = 0;
 }
 
 //destructor
-queue::~queue(void){
+Queue::~Queue(void){
     while(_count){
         this->pop();
     }
 }
 
 //Methoden
-void queue::pop(){					//Loesch erstes Element.
+void Queue::pop(){					//Loesch erstes Element.
     if(!_count){                     //Liste bereits Leer
         return;
     }
@@ -47,26 +47,27 @@ void queue::pop(){					//Loesch erstes Element.
 }
 
 //Create a new Node at the beginning of the List
-void queue::push(Job* datent){
+void Queue::push(Job* job){
     if(!(_count)){                           //wenn liste leer
-        Node* tmp  = new Node(datent, NULL, NULL);     //erstellt das fertige neue Element
+        Node* tmp  = new Node(job, NULL, NULL);     //erstellt das fertige neue Element
         this->_first = tmp;
         this->_last = tmp;
         this->_count++;
     }
     else
     {
-        Node* tmp  = new Node(datent, NULL, this->_first);     //erstellt das fertige neue Element
+        //create the object
+        Node* tmp  = new Node(job, NULL, this->_first);
 
-        this->_first->Node::setPrevious(tmp);                     //das erste Element aktualisieren
-        this->_first = tmp;                                     //Header aktualisieren
+        this->_first->Node::setPrevious(tmp);
+        this->_first = tmp;
         this->_count++;
     }
 
 }
 
 //print out the whole List
-void queue::printJobs() {
+void Queue::printJobs() {
     Node* first = _first;
     int pos = 0;
     while(first!=NULL){
