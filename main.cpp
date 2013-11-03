@@ -18,7 +18,6 @@ using namespace std;
 
 
 //fills  queue  with  CPJob  objects
-
 void fillQueue(Queue* pQueue, int num) {
     Job* pPJob;
     for (int i = 0; i < num; i++){
@@ -28,28 +27,44 @@ void fillQueue(Queue* pQueue, int num) {
 }
 
 //driver: simple  test
-int  main(int argc, char* argv[]) {
-    Queue* pQueue;
-    pQueue = new Queue();
+int  main() {
+    Job* pPJob;
+    Queue* pQueue = new Queue();
     fillQueue(pQueue, 3);
-    cout << "\n----print:\n";
+
+    cout << "\n\t print der Queue(3 Elemente):\n";
     pQueue->printJobs();
-    pQueue->pop();
-    cout << "\n----print:\n";
+
+    cout << "\n\t Test pop-rueckgabewerte:\n";
+    Job* popjob = pQueue->pop();
+    cout << "pop-id: " << popjob->getPid() << " - " << popjob->getText() << endl;
+
+    cout << "\n\t Test print nach einem pop (2Elemente):\n";
     pQueue->printJobs();
-    pQueue->pop();
-    Job* pPJob = new  Job("LOOOL", 5);
+
+    cout << "\n ### neues Element pushen ...\n";
+    pPJob = new  Job("newpush", 3);
     pQueue->push(pPJob);
-    cout << "\n----print:\n";
+
+    cout << "\n ### pushen eines NULL-pointer ...\n";
+    pQueue->push(NULL);
+
+    cout << "\n\t Test print nach einem den beiden push (3Elemente):\n";
     pQueue->printJobs();
-    pQueue->pop();
-    pQueue->pop();
-    pQueue->pop();
-    cout << "\n----print:" << endl;
-    pQueue->printJobs();
-    pQueue->pop();
-    fillQueue(pQueue, 2);
-    cout << "\n----print:\n";
+
+    cout << "\n\t Test queue leer-poppen, dann nach-poppen, mit jew. pop-ausgabe:\n";
+    for(int i=0; i < 5; i++){
+        popjob = pQueue->pop();
+        if(popjob)
+            cout << "pop-id: " << popjob->getPid() << " - " << popjob->getText() << endl;
+        else
+            cout << "nichts zu poppen" << endl;
+        }
+
+    cout << "\n ### leere queue wieder fuellen(5Elem) ...\n";
+    fillQueue(pQueue, 5);
+
+    cout << "\n\t Test print (5Elemente):\n";
     pQueue->printJobs();
     return  0;
 }

@@ -10,6 +10,7 @@
 
 #ifndef NODE_HEADER
 #define NODE_HEADER
+
 #include "Job.h"
 
 //
@@ -21,20 +22,20 @@ private:
     Node* _previous;
     Node* _next;
 
-
 public: 
-    Job* _daten;
+    Job* job;
+
     //constructor
     Node(Job*, Node*, Node*);		//Neues Element mit
 
     //destruktor
     ~Node(void);						//default
 
-    //weitere Methoden
+    //accessors
     void setPrevious(Node*);
-    void setNext(Node*);
-
     Node* getPrevious();
+
+    void setNext(Node*);
     Node* getNext();
 };
 

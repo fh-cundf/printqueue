@@ -17,8 +17,8 @@
 class  Job
 {
 private:
-    long  lPid;
-    char* szText;
+    long  _jobPid;
+    char* _jobText;
 
 public:
     //constructor

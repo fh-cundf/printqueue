@@ -10,6 +10,7 @@
 
 #ifndef QUEUE_HEADER
 #define QUEUE_HEADER
+
 #include "Node.h"
 
 //
@@ -29,10 +30,10 @@ public:
     //destructor
     ~Queue(void);					//loeschen
 
-    //Methoden
-    void pop();			//Loesch-Fkt.
-    void push(Job*);			//Einfuege-Fkt.
-    void printJobs();		//Prinkt-Fkt.
+    //accessors
+    Job* pop();
+    void push(Job*);
+    void printJobs();
 
     void setfirst(Node*);
 };

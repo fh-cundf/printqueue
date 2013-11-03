@@ -16,62 +16,62 @@
 using namespace std;
 
 //constructor::create the empty Queue
-Queue::Queue(void){									//??? default ???
+Queue::Queue(void){
     this->_first = NULL;
     this->_last = NULL;
     this->_count = 0;
 }
 
-//destructor::delete all nodes
+//destructor:: delete all nodes
 Queue::~Queue(void){
     while(_count){
         this->pop();
     }
 }
 
-//Method::pop delete the last Element(first in) of the queue
-void Queue::pop(){
+//Method:: pop delete the last node(oldest/first in) of the queue
+Job* Queue::pop(){
     if(_count){
         Node* tmp = this->_last;
+        Job* job = tmp->job;
         this->_last = this->_last->getPrevious();
         if(this->_last){
             this->_last->setNext(NULL);
-        }else{
+        }
+        else{
             this->_first = NULL;
         }
         this->_count--;
         delete tmp;
+        return job;
     }
+    return NULL;
 }
 
 //Method::push set a new node at the first position of the queue
 void Queue::push(Job* job){
-    if(job!=NULL){
-        if(!(_count)){                           //wenn liste leer
-            Node* tmp  = new Node(job, NULL, NULL);     //erstellt das fertige neue Element
-            this->_first = tmp;
+    if(job){
+        Node* tmp;
+        if(!(_count)){      //if queue is empty
+            tmp  = new Node(job, NULL, NULL);
             this->_last = tmp;
-            this->_count++;
         }
-        else
-        {
-            //create the object
-            Node* tmp  = new Node(job, NULL, this->_first);
-
+        else{
+            tmp  = new Node(job, NULL, this->_first);
             this->_first->Node::setPrevious(tmp);
-            this->_first = tmp;
-            this->_count++;
         }
+        this->_first = tmp;
+        this->_count++;
     }
 }
 
-//print out the whole List
+//Method:: print the whole queue
 void Queue::printJobs() {
     Node* first = _first;
     int pos = 0;
     while(first!=NULL){
         pos++;
-        cout << pos << ": " << first->_daten->getPid() << " - " << first->_daten->getText() << endl;
+        cout << pos << ": " << first->job->getPid() << " - " << first->job->getText() << endl;
         first = first->getNext();
     }
 }

@@ -13,33 +13,31 @@
 #include  "Node.h"
 #include  "Job.h"
 
-// ein Node
-//constructor
+//constructor  ::sets  pointer to previous next job
 Node::Node(Job* job, Node* previous, Node* next ){
     this->_previous = previous;
     this->_next = next;
-    this->_daten = job;
+    this->job = job;
+}
+
+//destructor::
+Node::~Node(void){
+    //is there a memory-leak without the following delete(after pop?)?
+//    delete this->job;
 }
 
 
-//destruktor
-Node::~Node(void){									//default
-    delete this->_daten;   							//delete das neue free...
-}
-
-
-//weitere Methoden
+//accessors
 void Node::setPrevious(Node* node){
     this->_previous = node;
 }
 
+Node* Node::getPrevious(){
+    return _previous;
+}
 
 void Node::setNext(Node* node){
     this->_next = node;
-}
-
-Node* Node::getPrevious(){
-    return _previous;
 }
 
 Node* Node::getNext(){
