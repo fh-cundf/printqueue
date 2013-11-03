@@ -7,7 +7,7 @@
  * Job.cpp    - Job(data)
  *
 ********************************************************/
-
+#include <iostream>
 #include <cstring>
 
 #include "Job.h"
@@ -43,4 +43,9 @@ char* Job::getText(void) {
 //accessor::returns  process  id
 long Job::getPid(void) {
     return _jobPid;
+}
+
+// print job to console,
+void Job::printJob(){
+    cout << this->_jobPid << " - " << this->_jobText << endl;
 }

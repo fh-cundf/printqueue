@@ -9,7 +9,6 @@
 ********************************************************/
 
 #include  <cstring>
-#include  <iostream>
 
 #include  "Queue.h"
 
@@ -66,12 +65,11 @@ void Queue::push(Job* job){
 }
 
 //Method:: print the whole queue
+//use the Job::printJob() Method
 void Queue::printJobs() {
     Node* first = _first;
-    int pos = 0;
-    while(first!=NULL){
-        pos++;
-        cout << pos << ": " << first->job->getPid() << " - " << first->job->getText() << endl;
+    while(first != NULL){
+        first->job->printJob();
         first = first->getNext();
     }
 }

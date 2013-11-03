@@ -31,6 +31,7 @@ public:
     void setText(char*); // sets  text-field
     char* getText(void); // returns  text-field
     long getPid(void); // returns  process-id
+    void printJob();   // print job to console
 };
 
 #endif /* JOB_HEADER */
