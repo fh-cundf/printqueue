@@ -1,9 +1,9 @@
 /********************************************************
- * OOP - AS1_pqueue
+ * OOP - AS1_printqueue
  * Christian Winkler, Franz Polz
  * FH-Salzburg, ITSB-B2012
  *
- * 01.11.2013
+ * 09.11.2013
  * Job.cpp    - Job(data)
  *
 ********************************************************/
@@ -19,13 +19,13 @@ Job::Job(char* _szText, long  _lPid){
     if(!_szText)
         _szText = "";
     _jobPid = _lPid;
-    _jobText = new  char[strlen(_szText) + 1];		//das neue malloc() !!!! new- -delete für free
+    _jobText = new  char[strlen(_szText) + 1];
     strcpy(_jobText, _szText);
 }
 
 //destructor  ::deletes  allocated  mem  for  text-field
 Job::~Job(void) {
-    delete[]  _jobText;			//Speicher wieder frei geben --free !!!
+    delete[]  _jobText;
 }
 
 //accessor::sets  text-field

@@ -1,10 +1,9 @@
 /********************************************************
- * OOP - AS1_pqueue
+ * OOP - AS1_printqueue
  * Christian Winkler, Franz Polz
  * FH-Salzburg, ITSB-B2012
  *
- *
- * 01.11.2013
+ * 09.11.2013
  * main.cpp    - Testprogramm for the Queue
  *
 ********************************************************/
