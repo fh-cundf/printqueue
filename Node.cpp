@@ -4,13 +4,10 @@
  * FH-Salzburg, ITSB-B2012
  *
  * 01.11.2013
- * CList.cpp    - Node-Objekt
+ * Node.cpp    - Node-Object(single element for the queue)
  *
- *
- * TODO:    - Kommentare/Variablen anpassen,(CList passt fast nicht --> Objekt umbenennen in z.B. Node??)
- *          - Code-Review durch Kollega
- *          - Seinen Code anpassen lassen
 ********************************************************/
+
 #include  <cstring>
 
 #include  "Node.h"
@@ -18,37 +15,33 @@
 
 // ein Node
 //constructor
-Node::Node(Job* pdaten, Node* pprev=NULL, Node* pnext=NULL){				//Neues Element mit
-    this->_previous = pprev;
-    this->_next = pnext;
-    this->_daten = pdaten;
+Node::Node(Job* job, Node* previous, Node* next ){
+    this->_previous = previous;
+    this->_next = next;
+    this->_daten = job;
 }
 
 
 //destruktor
 Node::~Node(void){									//default
-    delete _daten;   							//delete das neue free...
+    delete this->_daten;   							//delete das neue free...
 }
 
 
 //weitere Methoden
-void Node::setPrevious(Node* p_prev){
-
-    this->_previous = p_prev;
+void Node::setPrevious(Node* node){
+    this->_previous = node;
 }
 
 
-void Node::setNext(Node* p_next){
-
-    this->_next = p_next;
-
+void Node::setNext(Node* node){
+    this->_next = node;
 }
 
 Node* Node::getPrevious(){
-
     return _previous;
 }
-Node* Node::getNext(){
 
+Node* Node::getNext(){
     return _next;
 }

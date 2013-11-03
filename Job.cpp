@@ -4,12 +4,8 @@
  * FH-Salzburg, ITSB-B2012
  *
  * 01.11.2013
- * CPJob.cpp    - foo
+ * Job.cpp    - Job(data)
  *
- *
- * TODO:    - Kommentare/Variablen anpassen,
- *          - Code-Review durch Kollega
- *          - Seinen Code anpassen lassen
 ********************************************************/
 
 #include <cstring>

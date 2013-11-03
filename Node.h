@@ -4,14 +4,9 @@
  * FH-Salzburg, ITSB-B2012
  *
  * 01.11.2013
- * CList.h
+ * Node.h
  *
- *
- * TODO:    - Kommentare/Variablen anpassen,
- *          - Code-Review durch Kollega
- *          - Seinen Code anpassen lassen
 ********************************************************/
-
 
 #ifndef NODE_HEADER
 #define NODE_HEADER
@@ -30,7 +25,7 @@ private:
 public: 
     Job* _daten;
     //constructor
-    Node(Job* daten, Node* first, Node* last);		//Neues Element mit
+    Node(Job*, Node*, Node*);		//Neues Element mit
 
     //destruktor
     ~Node(void);						//default

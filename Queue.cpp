@@ -4,12 +4,8 @@
  * FH-Salzburg, ITSB-B2012
  *
  * 01.11.2013
- * CQueue.cpp   - FOO
+ * Queue.cpp   - the queue itself
  *
- *
- * TODO:    - Kommentare/Variablen anpassen,
- *          - Code-Review durch Kollega
- *          - Seinen Code anpassen lassen
 ********************************************************/
 
 #include  <cstring>
@@ -19,51 +15,54 @@
 
 using namespace std;
 
-//constructor  ::create the empty Queue
+//constructor::create the empty Queue
 Queue::Queue(void){									//??? default ???
     this->_first = NULL;
     this->_last = NULL;
     this->_count = 0;
 }
 
-//destructor
+//destructor::delete all nodes
 Queue::~Queue(void){
     while(_count){
         this->pop();
     }
 }
 
-//Methoden
-void Queue::pop(){					//Loesch erstes Element.
-    if(!_count){                     //Liste bereits Leer
-        return;
-    }
-    else {                          //lösch den ersten
-        Node* tmp = this->_first;
-        this->_first = this->_first->getNext();
-        this->_count --;
+//Method::pop delete the last Element(first in) of the queue
+void Queue::pop(){
+    if(_count){
+        Node* tmp = this->_last;
+        this->_last = this->_last->getPrevious();
+        if(this->_last){
+            this->_last->setNext(NULL);
+        }else{
+            this->_first = NULL;
+        }
+        this->_count--;
         delete tmp;
     }
 }
 
-//Create a new Node at the beginning of the List
+//Method::push set a new node at the first position of the queue
 void Queue::push(Job* job){
-    if(!(_count)){                           //wenn liste leer
-        Node* tmp  = new Node(job, NULL, NULL);     //erstellt das fertige neue Element
-        this->_first = tmp;
-        this->_last = tmp;
-        this->_count++;
-    }
-    else
-    {
-        //create the object
-        Node* tmp  = new Node(job, NULL, this->_first);
+    if(job!=NULL){
+        if(!(_count)){                           //wenn liste leer
+            Node* tmp  = new Node(job, NULL, NULL);     //erstellt das fertige neue Element
+            this->_first = tmp;
+            this->_last = tmp;
+            this->_count++;
+        }
+        else
+        {
+            //create the object
+            Node* tmp  = new Node(job, NULL, this->_first);
 
-        this->_first->Node::setPrevious(tmp);
-        this->_first = tmp;
-        this->_count++;
+            this->_first->Node::setPrevious(tmp);
+            this->_first = tmp;
+            this->_count++;
+        }
     }
-
 }
 
 //print out the whole List

@@ -5,12 +5,8 @@
  *
  *
  * 01.11.2013
- * main.cpp    - Testprogramm fuer Queue
+ * main.cpp    - Testprogramm for the Queue
  *
- *
- * TODO:    - Kommentare/Variablen anpassen,
- *          - Code-Review durch Kollega
- *          - Seinen Code anpassen lassen
 ********************************************************/
 
 #include  <iostream>
@@ -42,8 +38,6 @@ int  main(int argc, char* argv[]) {
     cout << "\n----print:\n";
     pQueue->printJobs();
     pQueue->pop();
-    // Job* pPJob = new  Job(NULL, 5);          //reudige Fehlermögl. fix in job durch if(NULL) : ""???
-    // pQueue->push(pPJob);
     Job* pPJob = new  Job("LOOOL", 5);
     pQueue->push(pPJob);
     cout << "\n----print:\n";

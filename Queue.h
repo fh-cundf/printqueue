@@ -4,12 +4,8 @@
  * FH-Salzburg, ITSB-B2012
  *
  * 01.11.2013
- * CQueue.h
+ * Queue.h
  *
- *
- * TODO:    - Kommentare/Variablen anpassen,
- *          - Code-Review durch Kollega
- *          - Seinen Code anpassen lassen
 ********************************************************/
 
 #ifndef QUEUE_HEADER
