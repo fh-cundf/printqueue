@@ -37,6 +37,7 @@ int  main() {
     cout << "\n\t Test pop-rueckgabewerte:\n";
     Job* popjob = pQueue->pop();
     cout << "pop-id: " << popjob->getPid() << " - " << popjob->getText() << endl;
+    delete popjob;
 
     cout << "\n\t Test print nach einem pop (2Elemente):\n";
     pQueue->printJobs();
@@ -55,10 +56,15 @@ int  main() {
     for(int i=0; i < 5; i++){
         popjob = pQueue->pop();
         if(popjob)
+        {
             cout << "pop-id: " << popjob->getPid() << " - " << popjob->getText() << endl;
+        }
         else
+        {
             cout << "nichts zu poppen" << endl;
         }
+        delete popjob;
+    }
 
     cout << "\n ### leere queue wieder fuellen(5Elem) ...\n";
     fillQueue(pQueue, 5);

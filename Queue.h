@@ -14,28 +14,26 @@
 #include "Node.h"
 
 //
-//  class  QUEUE
+//  class  QUEUE is a double-linked-list
 //
 class Queue
 {
 private:
-    Node* _last;			//letztes
-    Node* _first;			//erstes
-    int _count;				//Anzahl
+    Node* _last;			//last Element
+    Node* _first;			//first Element
+    int _count;				//Number of Elements
 
 public:
     //constructor
-    Queue(void);		//??? default ???
+    Queue(void);
 
     //destructor
-    ~Queue(void);					//loeschen
+    ~Queue(void);
 
     //accessors
     Job* pop();
     void push(Job*);
     void printJobs();
-
-    void setfirst(Node*);
 };
 
 #endif /* QUEUE_HEADER */

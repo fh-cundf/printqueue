@@ -14,7 +14,7 @@
 #include "Job.h"
 
 //
-//  class Node beinhaltet die Liste selbst.
+//  class Node defines a singe Element of the Queue
 //
 class  Node
 {
@@ -26,10 +26,10 @@ public:
     Job* job;
 
     //constructor
-    Node(Job*, Node*, Node*);		//Neues Element mit
+    Node(Node*, Job*, Node*);
 
     //destruktor
-    ~Node(void);						//default
+    ~Node(void);
 
     //accessors
     void setPrevious(Node*);

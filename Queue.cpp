@@ -21,10 +21,10 @@ Queue::Queue(void){
     this->_count = 0;
 }
 
-//destructor:: delete all nodes
+//destructor:: deletes all nodes(this->pop) with containing Jobs(delete)
 Queue::~Queue(void){
     while(_count){
-        this->pop();
+        delete this->pop();
     }
 }
 
@@ -40,23 +40,23 @@ Job* Queue::pop(){
         else{
             this->_first = NULL;
         }
-        this->_count--;
+        this->_count --;
         delete tmp;
         return job;
     }
     return NULL;
 }
 
-//Method::push set a new node at the first position of the queue
+//Method::push create a new node with Job at the first position of the queue
 void Queue::push(Job* job){
     if(job){
         Node* tmp;
         if(!(_count)){      //if queue is empty
-            tmp  = new Node(job, NULL, NULL);
+            tmp  = new Node(NULL, job, NULL);
             this->_last = tmp;
         }
         else{
-            tmp  = new Node(job, NULL, this->_first);
+            tmp  = new Node(NULL, job, this->_first);
             this->_first->Node::setPrevious(tmp);
         }
         this->_first = tmp;
