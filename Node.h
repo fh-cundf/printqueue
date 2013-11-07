@@ -14,7 +14,7 @@
 #include "Job.h"
 
 //
-//  class  CList beinhaltet die Liste selbst.
+//  class Node beinhaltet die Liste selbst.
 //
 class  Node
 {
