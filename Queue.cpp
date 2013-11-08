@@ -51,13 +51,8 @@ Job* Queue::pop(){
 void Queue::push(Job* job){
     if(job){
         Node* tmp;
-<<<<<<< HEAD
-        if(!(_count)){                               //if queue is empty
-            tmp  = new Node(job, NULL, NULL);
-=======
         if(!(_count)){      //if queue is empty
             tmp  = new Node(NULL, job, NULL);
->>>>>>> cc802135936f790dc4443c2c29351a7f136e3f48
             this->_last = tmp;
         }
         else{

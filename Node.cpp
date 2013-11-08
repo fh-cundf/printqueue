@@ -1,4 +1,4 @@
-﻿/********************************************************
+/********************************************************
  * OOP - AS1_printqueue
  * Christian Winkler, Franz Polz
  * FH-Salzburg, ITSB-B2012
@@ -24,12 +24,7 @@ Node::Node(Node* previous, Job* job, Node* next ){
 
 //destructor::
 Node::~Node(void){
-<<<<<<< HEAD
-    //is there a memory-leak without the following delete(after pop?)?
-    delete this->job;
-=======
     //containing Job is problem of the guy who calls the Node-delete
->>>>>>> cc802135936f790dc4443c2c29351a7f136e3f48
 }
 
 

@@ -1,4 +1,4 @@
-﻿/********************************************************
+/********************************************************
  * OOP - AS1_printqueue
  * Christian Winkler, Franz Polz
  * FH-Salzburg, ITSB-B2012
@@ -14,36 +14,35 @@
 
 using namespace std;
 
-//constructor  ::sets  text-field  and process-id
-Job::Job(char* _jobText, long  _jobPid){
-    if(!_jobText){
-        _jobText = (char*)"";
-    }
-    this->_jobPid = _jobPid;
-    this->_jobText = new  char[strlen(_jobText) + 1];
-    strcpy(this->_jobText, _jobText);
+//constructor  ::sets  text-field  and  process-id
+Job::Job(char* _szText, long  _lPid){
+    if(!_szText)
+        _szText = "";
+    _jobPid = _lPid;
+    _jobText = new  char[strlen(_szText) + 1];
+    strcpy(_jobText, _szText);
 }
 
 //destructor  ::deletes  allocated  mem  for  text-field
 Job::~Job(void) {
-    delete[]  this->_jobText;
+    delete[]  _jobText;
 }
 
 //accessor::sets  text-field
-void  Job::setText(char* _jobText) {
-    delete[]  this->_jobText;
-    this->_jobText = new  char[strlen(_jobText) + 1];
-    strcpy(this->_jobText, _jobText);
+void  Job::setText(char  * _szText) {
+    delete[]  _jobText;
+    _jobText = new  char[strlen(_szText) + 1];
+    strcpy(_jobText, _szText);
 }
 
 //accessor::returns  text-field
 char* Job::getText(void) {
-    return this->_jobText;
+    return _jobText;
 }
 
 //accessor::returns  process  id
 long Job::getPid(void) {
-    return this->_jobPid;
+    return _jobPid;
 }
 
 // print job to console,

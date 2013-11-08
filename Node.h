@@ -14,11 +14,7 @@
 #include "Job.h"
 
 //
-<<<<<<< HEAD
-//  class Node beinhaltet das Listenelement selbst.
-=======
 //  class Node defines a singe Element of the Queue
->>>>>>> cc802135936f790dc4443c2c29351a7f136e3f48
 //
 class  Node
 {
