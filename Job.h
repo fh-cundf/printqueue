@@ -12,7 +12,7 @@
 #define JOB_HEADER
 
 //
-//  class  Job  defines  a  simple  printjob  with  id  and  text
+// class  Job  defines  a  simple  printjob  with  id  and  text
 //
 class  Job
 {
