@@ -14,7 +14,7 @@
 
 using namespace std;
 
-//constructor  ::sets  text-field  and  process-id
+//constructor  ::sets  text-field  and process-id
 Job::Job(char* _jobText, long  _jobPid){
     if(!_jobText){
         _jobText = (char*)"";
