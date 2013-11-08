@@ -1,4 +1,4 @@
-/********************************************************
+﻿/********************************************************
  * OOP - AS1_printqueue
  * Christian Winkler, Franz Polz
  * FH-Salzburg, ITSB-B2012
@@ -15,15 +15,7 @@
 
 using namespace std;
 
-
-//fills  queue  with  CPJob  objects
-void fillQueue(Queue* pQueue, int num) {
-    Job* pPJob;
-    for (int i = 0; i < num; i++){
-        pPJob = new  Job("text", i);
-        pQueue->push(pPJob);
-    }
-}
+void fillQueue(Queue* pQueue, int num);
 
 //driver: simple  test
 int  main() {
@@ -31,27 +23,28 @@ int  main() {
     Queue* pQueue = new Queue();
     fillQueue(pQueue, 3);
 
-    cout << "\n\t print der Queue(3 Elemente):\n";
+    cout << "\n\t print der Queue(3 Elemente):\n\n";
     pQueue->printJobs();
 
-    cout << "\n\t Test pop-rueckgabewerte:\n";
+    cout << "\n\n\t Test pop-Rueckgabewerte:\n\n";
     Job* popjob = pQueue->pop();
     cout << "pop-id: " << popjob->getPid() << " - " << popjob->getText() << endl;
 
-    cout << "\n\t Test print nach einem pop (2Elemente):\n";
+
+    cout << "\n\n\t Test print nach einem pop (2Elemente):\n\n";
     pQueue->printJobs();
 
-    cout << "\n ### neues Element pushen ...\n";
-    pPJob = new  Job("newpush", 3);
+    cout << "\n\n ### neues Element pushen ...\n\n";
+    pPJob = new  Job((char*)"newpush", 3);
     pQueue->push(pPJob);
 
-    cout << "\n ### pushen eines NULL-pointer ...\n";
+    cout << "\n\n ### pushen eines NULL-pointer ...\n\n";
     pQueue->push(NULL);
 
-    cout << "\n\t Test print nach einem den beiden push (3Elemente):\n";
+    cout << "\n\n\t Test print nach einfuegen eines neuen elements (3Elemente):\n\n";
     pQueue->printJobs();
 
-    cout << "\n\t Test queue leer-poppen, dann nach-poppen, mit jew. pop-ausgabe:\n";
+    cout << "\n\n\t Test queue leer-poppen, dann nach-poppen, mit jew. pop-ausgabe:\n\n";
     for(int i=0; i < 5; i++){
         popjob = pQueue->pop();
         if(popjob)
@@ -60,10 +53,20 @@ int  main() {
             cout << "nichts zu poppen" << endl;
         }
 
-    cout << "\n ### leere queue wieder fuellen(5Elem) ...\n";
+    cout << "\n\n ### leere queue wieder fuellen(5Elem) ...\n\n";
     fillQueue(pQueue, 5);
 
-    cout << "\n\t Test print (5Elemente):\n";
+    cout << "\n\n\t Test print (5Elemente):\n\n";
     pQueue->printJobs();
     return  0;
+}
+
+
+//fills  queue  with  CPJob  objects
+void fillQueue(Queue* pQueue, int num) {
+    Job* pPJob;
+    for (int i = 0; i < num; i++){
+        pPJob = new  Job((char*)"text", i);
+        pQueue->push(pPJob);
+    }
 }

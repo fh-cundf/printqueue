@@ -14,7 +14,7 @@
 #include "Job.h"
 
 //
-//  class Node beinhaltet die Liste selbst.
+//  class Node beinhaltet das Listenelement selbst.
 //
 class  Node
 {

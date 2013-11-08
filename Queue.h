@@ -14,7 +14,7 @@
 #include "Node.h"
 
 //
-//  class  QUEUE
+//  class  QUEUE is the header from this List
 //
 class Queue
 {
@@ -25,10 +25,10 @@ private:
 
 public:
     //constructor
-    Queue(void);		//??? default ???
+    Queue(void);                    //default
 
     //destructor
-    ~Queue(void);					//loeschen
+    ~Queue(void);					//default
 
     //accessors
     Job* pop();
