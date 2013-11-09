@@ -20,7 +20,7 @@ using namespace std;
 void fillQueue(Queue* pQueue, int num) {
     Job* pPJob;
     for (int i = 0; i < num; i++){
-        pPJob = new  Job("text", i);
+        pPJob = new  Job((char*)"text", i);
         pQueue->push(pPJob);
     }
 }
@@ -43,7 +43,7 @@ int  main() {
     pQueue->printJobs();
 
     cout << "\n ### neues Element pushen ...\n";
-    pPJob = new  Job("newpush", 3);
+    pPJob = new  Job((char*)"newpush", 3);
     pQueue->push(pPJob);
 
     cout << "\n ### pushen eines NULL-pointer ...\n";

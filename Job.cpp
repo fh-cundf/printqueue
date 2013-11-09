@@ -17,7 +17,7 @@ using namespace std;
 //constructor  ::sets  text-field  and  process-id
 Job::Job(char* _szText, long  _lPid){
     if(!_szText)
-        _szText = "";
+        _szText = (char*)"";
     _jobPid = _lPid;
     _jobText = new  char[strlen(_szText) + 1];
     strcpy(_jobText, _szText);
